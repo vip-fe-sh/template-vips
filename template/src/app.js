@@ -10,8 +10,10 @@ require('./styles/app.scss');
 if (__DEV__) {
   Vue.config.debug = true;
 }
+
 // use vue-resource to load async data
 Vue.use(VueResource);
+
 // add vue filter
 Vue.filter('addClass', addClass);
 

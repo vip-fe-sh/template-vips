@@ -1,17 +1,13 @@
+// filter to addClass
 let addClass = (item) => {
-  let result;
   switch (item.class) {
     case 'a':
-      result = '<em class="font-red">' + item.name + '</em>';
-      break;
+      return '<em class="font-red">' + item.name + '</em>';
     case 'b':
-      result = '<em class="font-yellow">' + item.name + '</em>';
-      break;
+      return '<em class="font-yellow">' + item.name + '</em>';
     case 'c':
-      result = '<em class="font-blue">' + item.name + '</em>';
-      break;
+      return '<em class="font-blue">' + item.name + '</em>';
   }
-  return result;
 };
 
 module.exports = {
