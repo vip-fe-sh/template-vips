@@ -1,0 +1,44 @@
+@import "reset";
+@import "base";
+
+// common
+.hidden {
+  display: none;
+}
+.font-red {
+  color: $fontRed;
+}
+.font-yellow {
+  color: $fontYellow;
+}
+.font-blue {
+  color: $fontBlue;
+}
+
+// components
+.container {
+  width: 100%;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  margin: -150px auto 0;
+  text-align: center;
+  font-size: 24px;
+  color: $baseColor;
+  h1 {
+    font-size: 60px;
+  }
+}
+
+// utils
+.spin {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0.75);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -40px;
+  margin-left: -40px;
+}

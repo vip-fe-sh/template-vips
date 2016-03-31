@@ -1,0 +1,16 @@
+{
+  "hello": [
+    {
+      "class": "a",
+      "name": "VIP"
+    },
+    {
+      "class": "b",
+      "name": "FE"
+    },
+    {
+      "class": "c",
+      "name": "TEAM"
+    }
+  ]
+}
