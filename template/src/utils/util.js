@@ -1,3 +1,5 @@
+import Vue from 'vue';
+
 let initSpinner = (target) => {
   let opts = {
     lines: 12,
@@ -24,6 +26,21 @@ let initSpinner = (target) => {
   window.Spinner && new window.Spinner(opts).spin(target);
 };
 
+let request = (url, callback) => {
+  let target = document.getElementById('spin');
+  target.classList.remove('hidden');
+  initSpinner(target);
+
+  Vue.http.get(url).then((res) => {
+    if (res.ok) {
+      window.setTimeout(() => {
+        callback(res.data);
+        target.classList.add('hidden');
+      }, 1000);
+    }
+  });
+};
+
 module.exports = {
-  initSpinner: initSpinner
+  request: request
 };

@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueResource from 'vue-resource';
-import {addClass} from './utils/filters.js';
+import store from './vuex/store';
+import {addClass} from './utils/filters';
 import App from './components/App';
 
 require('./styles/app.scss');
@@ -11,7 +12,7 @@ if (__DEV__) {
   Vue.config.debug = true;
 }
 
-// use vue-resource to load async data
+// use vue-resource to request data
 Vue.use(VueResource);
 
 // add vue filter
@@ -19,6 +20,7 @@ Vue.filter('addClass', addClass);
 
 /* eslint-disable no-new */
 new Vue({
+  store,
   el: 'body',
   components: {
     'app': App

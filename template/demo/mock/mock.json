@@ -1,5 +1,5 @@
 {
-  "hello": [
+  "info": [
     {
       "class": "a",
       "name": "VIP"
@@ -10,7 +10,7 @@
     },
     {
       "class": "c",
-      "name": "TEAM"
+      "name": "SH"
     }
   ]
 }

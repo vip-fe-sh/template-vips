@@ -1,6 +1,6 @@
 # vip-vue-webpack-boilerplate
 
-> A full-featured Webpack setup with hot-reload, lint-on-save, resource fetch & css extraction, extended from [vue-template](https://github.com/vuejs-templates/webpack)
+> A full-featured Webpack setup with hot-reload, lint-on-save, css extraction, vue-resource & vuex, extended from [vue-template](https://github.com/vuejs-templates/webpack)
 
 ### Before You Start...
 
