@@ -32,7 +32,7 @@ app.use(devMiddleware);
 app.use(hotMiddleware);
 // serve static demo folder
 app.use(express.static(path.resolve(__dirname, '../demo/')));
-app.use(express.static(path.resolve(__dirname, '../lib/')));
+app.use(express.static(path.resolve(__dirname, '../static/')));
 
 app.listen(8080, function (err) {
   if (err) {

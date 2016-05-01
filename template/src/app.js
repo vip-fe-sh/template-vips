@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueResource from 'vue-resource';
 import store from './vuex/store';
-import {addClass} from './utils/filters';
+import { addClass } from './utils/filters';
 import App from './components/App';
 
 require('./styles/app.scss');

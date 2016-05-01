@@ -35,11 +35,13 @@ $ npm run dev
 │   │   │   ├── index.html    # component template
 │   │   │   └── index.js      # component script
 │   │   └── ...
+│   ├── vuex                  # vuex
+│   │   └── ...
 │   ├── styles                # app styles
 │   │   └── ...
-│   ├── utils                 # utils function
-│   │   └── ...
-├── lib                       # pure static assets (directly copied)
+│   └── utils                 # utils function
+│       └── ...
+├── static                    # pure static assets (directly copied)
 ├── dist                      # built files ready for deploy
 ├── demo
 │   ├── mock                  # mock data
