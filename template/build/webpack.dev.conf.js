@@ -1,38 +1,27 @@
+/* eslint-disable */
 var webpack = require('webpack');
-var config = require('./webpack.base.conf');
-
-// eval-source-map is faster for development
-config.devtool = 'eval-source-map';
+var merge = require('webpack-merge');
+var utils = require('./utils');
+var baseWebpackConfig = require('./webpack.base.conf');
 
 // add hot-reload related code to entry chunks
-var polyfill = 'eventsource-polyfill';
-var devClient = './build/dev-client';
-Object.keys(config.entry).forEach(function (name, i) {
-  var extras = i === 0 ? [polyfill, devClient] : [devClient];
-  config.entry[name] = extras.concat(config.entry[name]);
+Object.keys(baseWebpackConfig.entry).forEach(function (name) {
+  baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name]);
 });
 
-// necessary for the html plugin to work properly
-// when serving the html from in-memory
-config.output.publicPath = '/';
-
-// add sass loader in dev
-config.module.loaders.push({
-  test: /\.css$/,
-  loader: 'style!css'
-}, {
-  test: /\.scss$/,
-  loader: 'style!css!sass'
+module.exports = merge(baseWebpackConfig, {
+  module: {
+    loaders: utils.styleLoaders()
+  },
+  // eval-source-map is faster for development
+  devtool: '#eval-source-map',
+  plugins: [
+    // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      __DEV__: true
+    })
+  ]
 });
-
-config.plugins = (config.plugins || []).concat([
-  // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
-  new webpack.optimize.OccurenceOrderPlugin(),
-  new webpack.HotModuleReplacementPlugin(),
-  new webpack.NoErrorsPlugin(),
-  new webpack.DefinePlugin({
-    __DEV__: true
-  })
-]);
-
-module.exports = config;

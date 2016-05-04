@@ -2,9 +2,9 @@
 
 > A full-featured Webpack setup with hot-reload, lint-on-save, css extraction, vue-resource & vuex, extended from [vue-template](https://github.com/vuejs-templates/webpack)
 
-### Before You Start...
+## Documentation
 
-This boilerplate is targeted towards large, serious projects and contains a lot of moving pieces. If you just want to try out `vue-loader` or whip out a quick prototype, use the [webpack-simple](https://github.com/vuejs-templates/webpack-simple) template instead.
+Common topics are discussed in the [docs](http://vuejs-templates.github.io/webpack). Make sure to read it!
 
 ## Usage
 
@@ -43,7 +43,7 @@ $ npm run dev
 │       └── ...
 ├── static                    # pure static assets (directly copied)
 ├── dist                      # built files ready for deploy
-├── demo
+├── page
 │   ├── mock                  # mock data
 │   └── index.html            # demo page
 ├── .babelrc                  # babel config
