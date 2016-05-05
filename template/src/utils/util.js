@@ -34,13 +34,13 @@ let request = (url, callback) => {
   Vue.http.get(url).then((res) => {
     if (res.ok) {
       window.setTimeout(() => {
-        callback(res.data);
         target.classList.add('hidden');
+        callback(res.data);
       }, 1000);
     }
   });
 };
 
 module.exports = {
-  request: request
+  request
 };

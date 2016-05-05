@@ -11,5 +11,5 @@ let addClass = (item) => {
 };
 
 module.exports = {
-  addClass: addClass
+  addClass
 };

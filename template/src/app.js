@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import VueResource from 'vue-resource';
 import store from './vuex/store';
+import VueResource from 'vue-resource';
 import { addClass } from './utils/filters';
 import App from './components/App';
 
@@ -23,6 +23,6 @@ new Vue({
   store,
   el: 'body',
   components: {
-    'app': App
+    App
   }
 });

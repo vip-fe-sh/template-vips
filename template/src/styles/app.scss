@@ -6,33 +6,18 @@
   display: none;
 }
 .font-red {
-  color: $fontRed;
+  color: $colorRed;
 }
 .font-yellow {
-  color: $fontYellow;
+  color: $colorYellow;
 }
 .font-blue {
-  color: $fontBlue;
+  color: $colorBlue;
 }
 
 // components
-#app {
-  width: 100%;
-  height: 200px;
-  position: absolute;
-  top: 50%;
-  margin: -150px auto 0;
-  text-align: center;
-  font-size: 24px;
-  color: $baseColor;
-  h1 {
-    font-size: 60px;
-    cursor: pointer;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
+@import "../components/App/index.scss";
+@import "../components/Hello/index.scss";
 
 // utils
 .spin {
