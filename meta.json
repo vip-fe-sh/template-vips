@@ -1,54 +1,25 @@
 {
-  "prompts": {
+  "schema": {
     "name": {
       "type": "string",
       "required": true,
-      "message": "Project name"
+      "label": "Project name"
     },
     "version": {
       "type": "string",
       "required": true,
-      "message": "Project version",
+      "label": "Project version",
       "default": "1.0.0"
     },
     "description": {
       "type": "string",
       "required": false,
-      "message": "Project description",
+      "label": "Project description",
       "default": "A VIPS Vue.js project"
     },
     "author": {
       "type": "string",
-      "message": "Author"
-    },
-    "lint": {
-      "type": "confirm",
-      "message": "Use ESLint to lint your code?"
-    },
-    "lintConfig": {
-      "when": "lint",
-      "type": "list",
-      "message": "Pick an ESLint preset",
-      "choices": [
-        {
-          "name": "Standard (https://github.com/feross/standard)",
-          "value": "standard",
-          "short": "Standard"
-        },
-        {
-          "name": "AirBNB (https://github.com/airbnb/javascript)",
-          "value": "airbnb",
-          "short": "AirBNB"
-        },
-        {
-          "name": "none (configure it yourself)",
-          "value": "none",
-          "short": "none"
-        }
-      ]
+      "label": "Author"
     }
-  },
-  "filters": {
-    ".eslintrc.js": "lint"
   }
 }
