@@ -1,25 +1,25 @@
 {
-  "schema": {
+  "prompts": {
     "name": {
       "type": "string",
       "required": true,
-      "label": "Project name"
+      "message": "Project name"
     },
     "version": {
       "type": "string",
       "required": true,
-      "label": "Project version",
+      "message": "Project version",
       "default": "1.0.0"
     },
     "description": {
       "type": "string",
       "required": false,
-      "label": "Project description",
+      "message": "Project description",
       "default": "A VIPS Vue.js project"
     },
     "author": {
       "type": "string",
-      "label": "Author"
+      "message": "Author"
     }
   }
 }

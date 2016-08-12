@@ -1,15 +1,13 @@
-/* eslint-disable */
+var path = require('path');
 var config = require('../config');
 var utils = require('./utils');
 var webpack = require('webpack');
 var merge = require('webpack-merge');
 var baseWebpackConfig = require('./webpack.base.conf');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var env = config.build.env
 
-module.exports = merge(baseWebpackConfig, {
-  entry: {
-    vendors: ['vue']
-  },
+var webpackConfig = merge(baseWebpackConfig, {
   module: {
     loaders: utils.styleLoaders({ sourceMap: config.build.productionSourceMap, extract: true })
   },
@@ -28,9 +26,7 @@ module.exports = merge(baseWebpackConfig, {
   plugins: [
     // http://vuejs.github.io/vue-loader/workflow/production.html
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
+      'process.env': env
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -38,9 +34,47 @@ module.exports = merge(baseWebpackConfig, {
       }
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
-    // extract vendors into its own file
-    new webpack.optimize.CommonsChunkPlugin('vendors', 'js/vendors.min.js'),
     // extract css into its own file
-    new ExtractTextPlugin(utils.assetsPath('css/[name].min.css'))
+    new ExtractTextPlugin(utils.assetsPath('css/[name].min.css')),
+    // split vendor js into its own file
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: function (module, count) {
+        // any required modules inside node_modules are extracted to vendor
+        return (
+          module.resource &&
+          /\.js$/.test(module.resource) &&
+          module.resource.indexOf(
+            path.join(__dirname, '../node_modules')
+          ) === 0
+        );
+      }
+    }),
+    // extract webpack runtime and module manifest to its own file in order to
+    // prevent vendor hash from being updated whenever app bundle is updated
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest',
+      chunks: ['vendor']
+    })
   ]
 });
+
+if (config.build.productionGzip) {
+  var CompressionWebpackPlugin = require('compression-webpack-plugin');
+
+  webpackConfig.plugins.push(
+    new CompressionWebpackPlugin({
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: new RegExp(
+        '\\.(' +
+        config.build.productionGzipExtensions.join('|') +
+        ')$'
+      ),
+      threshold: 10240,
+      minRatio: 0.8
+    })
+  );
+}
+
+module.exports = webpackConfig;

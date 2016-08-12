@@ -65,7 +65,6 @@ $ npm run dev
   - HTML minified with [html-minifier](https://github.com/kangax/html-minifier).
   - CSS across all components extracted into a single file and minified with [cssnano](https://github.com/ben-eb/cssnano).
   - All static assets compiled with version hashes for efficient long-term caching, and a production `index.html` is auto-generated with proper URLs to these generated assets.
-  - Also see [deployment notes](#how-do-i-deploy-built-assets-with-my-backend-framework).
 
 For a better understanding of how things work, consult the docs for respective projects listed. In particular, [Webpack](http://webpack.github.io/).
 

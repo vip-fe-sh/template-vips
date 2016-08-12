@@ -1,0 +1,10 @@
+{
+  "name": "vip-cli-template-webpack",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "A full-featured Webpack setup with hot-reload, lint-on-save, css extraction, vue-resource & vuex.",
+  "scripts": {
+    "docs": "cd docs && gitbook serve",
+    "deploy-docs": "bash ./deploy-docs.sh"
+  }
+}
