@@ -1,5 +1,5 @@
 <p class="hello">
-  <span v-for="item in info">
+  <span v-for="item in info" track-by="$index">
     \{{{ item | addClass }}}
   </span>
 </p>

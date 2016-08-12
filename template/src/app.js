@@ -8,7 +8,7 @@ require('./styles/app.scss');
 
 // open debug mode in dev mode
 /* eslint-disable no-undef */
-if (__DEV__) {
+if (process.env) {
   Vue.config.debug = true;
 }
 

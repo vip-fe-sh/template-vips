@@ -36,7 +36,7 @@ let request = (url, callback) => {
       window.setTimeout(() => {
         target.classList.add('hidden');
         callback(res.data);
-      }, 1000);
+      }, 200);
     }
   });
 };
