@@ -3,8 +3,7 @@ import store from './vuex/store';
 import VueResource from 'vue-resource';
 import { addClass } from './utils/filters';
 import App from './components/App';
-
-require('./styles/app.scss');
+import './styles/app.scss';
 
 // open debug mode in dev mode
 /* eslint-disable no-undef */
